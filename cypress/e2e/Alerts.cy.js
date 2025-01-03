@@ -66,7 +66,7 @@ describe('Alert Cypress Tests', ()=>{
 
         cy.get("button[onclick='jsPrompt()']").click()
         cy.on('window:confirm', ()=> false)
-        //cy.get('#result').should('have.text', 'You entered: null')   //Need to checkout why this command isn't working
+        cy.get('#result').should('have.text', 'You entered: null')   //Need to checkout why this command isn't working
         
     })
 })
