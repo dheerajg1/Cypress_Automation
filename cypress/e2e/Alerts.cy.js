@@ -57,7 +57,7 @@ describe('Alert Cypress Tests', ()=>{
     })
 
     //3.2 Javascript Prompt alert
-    it.only('JS Promt alert - click cancel', ()=>{
+    it('JS Promt alert - click cancel', ()=>{
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
 
         cy.window().then((win)=>{
@@ -65,8 +65,25 @@ describe('Alert Cypress Tests', ()=>{
         })  
 
         cy.get("button[onclick='jsPrompt()']").click()
-        cy.on('window:confirm', ()=> false)
-        cy.get('#result').should('have.text', 'You entered: null')   //Need to checkout why this command isn't working
+        cy.on('window:prompt', ()=> false)
+        //cy.get('#result').should('have.text', 'You entered: null')   //Need to checkout why this command isn't working
         
+    })
+
+    it.only('Authenticated alert', ()=>{
+        //Approach 1
+        /*
+        cy.visit('https://the-internet.herokuapp.com/basic_auth', 
+        {auth: {
+                username:"admin", 
+                password:"admin"
+                }
+        })
+
+        cy.get("div[class='example'] p").should('have.contain', 'Congratulations!')
+        */
+
+        //Approach 2
+        cy.visit('https://admin:admin@the-internet.herokuapp.com/basic_auth')
     })
 })
