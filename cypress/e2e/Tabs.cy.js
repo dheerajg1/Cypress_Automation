@@ -9,7 +9,7 @@ describe('Handle tabs', ()=>{
         //can be used invoke method to remove attributes
         cy.get('.example >a').invoke('removeAttr', 'target').click();
 
-        //verify newly opened link
+        //verify newly opened link 
         cy.url().should('include', 'https://the-internet.herokuapp.com/windows/new')
 
         cy.wait(5000) //wait for 5 seconds to confirm new window
