@@ -12,7 +12,7 @@ describe('Frames', ()=>{
 
         cy.get("[aria-lable='Bold']").click();
     })
-
+    
     it.only('Approach 2 - Using custom cypress command ', ()=>{
         cy.visit('https://the-internet.herokuapp.com/iframe')
 
